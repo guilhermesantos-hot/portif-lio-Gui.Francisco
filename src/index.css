@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --color-accent: #ccff00;
+  --color-accent-hover: #b8e600;
+}
+
+@layer base {
+  :root {
+    --bg-main: #f8f9fa;
+    --card-bg: #ffffff;
+    --card-border: rgba(0, 0, 0, 0.08);
+    --text-primary: #0e0e11;
+    --text-secondary: #52525b;
+    --divider: rgba(0, 0, 0, 0.08);
+    --input-bg: #f4f4f5;
+  }
+
+  .dark {
+    --bg-main: #0b0b0d;
+    --card-bg: #141417;
+    --card-border: rgba(255, 255, 255, 0.08);
+    --text-primary: #f4f4f6;
+    --text-secondary: #a1a1aa;
+    --divider: rgba(255, 255, 255, 0.1);
+    --input-bg: #0b0b0d;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  body {
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  ::selection {
+    background-color: #ccff00;
+    color: #0b0b0d;
+  }
+
+  /* When custom cursor is active on desktop devices */
+  @media (pointer: fine) {
+    .custom-cursor-active,
+    .custom-cursor-active * {
+      cursor: none !important;
+    }
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #0b0b0d;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #232328;
+  border-radius: 9999px;
+}
+.light ::-webkit-scrollbar-track {
+  background: #f1f3f5;
+}
+.light ::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 9999px;
+}
